@@ -52,6 +52,8 @@ alias l="ls -laFGh"
 alias :q="echo YOU FAIL"
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 
+source ~/.server_aliases
+
 ## GIT
 gd() { git diff $* | view -; }
 
