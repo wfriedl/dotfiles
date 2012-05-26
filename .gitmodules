@@ -1,6 +1,7 @@
 [submodule ".vim/bundle/minibufexplorer"]
 	path = .vim/bundle/minibufexplorer
 	url = https://github.com/fholgado/minibufexpl.vim.git
+    ignore = all
 [submodule ".vim/bundle/ack"]
 	path = .vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
