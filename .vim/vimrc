@@ -1,0 +1,112 @@
+filetype off
+
+call pathogen#runtime_append_all_bundles()
+"call pathogen#infect()
+call pathogen#helptags()
+
+" Delete any existing autocommands must be before syntax lines
+autocmd!
+
+filetype on
+filetype plugin on
+filetype indent on
+
+" syntax highlighting
+syntax on
+
+set nocompatible
+set autowrite       " Automatically save before commands like :next and :make
+
+
+" Store temporary files in a central spot
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+if version >= 703
+    if has('persistent_undo')
+        set undofile
+        set undodir=~/.vim-tmp/undo,~/.tmp/undo,/var/tmp/undo,/tmp/vim-undo
+    endif
+endif
+
+set number
+nmap <f2> :set number! number?<cr>
+
+set pastetoggle=<F3>
+
+set hidden
+
+" Indentation
+set ai ts=4 sw=4
+set expandtab
+set hlsearch
+set smarttab
+set softtabstop=4
+set autoindent
+
+
+" Disable Error Bell
+set noeb vb t_vb=
+
+set titlestring=%f title " Display filename in terminal window
+set ruf=%l:%c ru " Display current column/line in bottom right
+set sc " Show incomplete command at bottom right
+set ic scs " Only be case sensitive when search contains uppercase
+
+" autocomplete mode
+set wildmode=longest,list
+
+" C spacing errors
+let c_comment_strings=1
+let c_space_errors=1
+let c_no_trail_space_error=0
+let c_no_tab_space_error=0
+
+" color scheme
+colorscheme slate
+
+" map the autocomplete key sequence to ctrl+space
+imap <c-space> <c-x><c-o> 
+" Change maplead to comma
+let mapleader=","
+
+" Ack
+nnoremap <leader>ae :Ack --type=erl --type=python <cword><cr>
+nnoremap <leader>a :Ack -a --type=nohtml <cword><cr>
+nnoremap <leader>/ :AckFromSearch -a <cr>
+nnoremap <leader>er :e **/<cword>.erl<cr>
+
+" Buffer Movements
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+cmap w!! w !sudo tee % >/dev/null
+
+nmap <silent> <leader>ee :e **/<cword>.erl<CR>
+
+" TagBar
+nmap <F8> :TagbarToggle<CR>
+
+" Was having problems calling functions properly
+":nnoremap <CR> :nohlsearch<cr>
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-d>
+nnoremap <c-k> <c-u>
+
+inoremap jj <ESC>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARROW KEYS ARE UNACCEPTABLE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Left> :echo "no!"<cr>
+map <Right> :echo "no!"<cr>
+map <Up> :echo "no!"<cr>
+map <Down> :echo "no!"<cr>
