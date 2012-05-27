@@ -1,7 +1,7 @@
 filetype off
 
+
 call pathogen#runtime_append_all_bundles()
-"call pathogen#infect()
 call pathogen#helptags()
 
 " Delete any existing autocommands must be before syntax lines
@@ -11,8 +11,18 @@ filetype on
 filetype plugin on
 filetype indent on
 
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+
 " syntax highlighting
 syntax on
+
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': ['python', 'php', 'javascript', 'css'],
+            \ 'passive_filetypes': ['puppet'] } 
 
 set nocompatible
 set autowrite       " Automatically save before commands like :next and :make
