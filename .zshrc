@@ -70,4 +70,6 @@ PATH=$PGSQLPATH:$PATH
 export PATH
 
 ##source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
-source virtualenvwrapper.sh
+if [ -f virtualenvwrapper.sh ]; then
+    source virtualenvwrapper.sh
+fi

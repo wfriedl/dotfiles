@@ -1,6 +1,9 @@
 Installation
 
-    git clone git://github.com/wfriedl/dotvim.git ~
+    cd ~
+    git init
+    git remote add origin git://github.com/wfriedl/dotvim.git
+    git pull origin master
 
 Create symlink for vimrc
 
