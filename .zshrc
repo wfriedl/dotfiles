@@ -2,6 +2,8 @@
 # Colors
 autoload -U colors && colors
 
+alias tmux="TERM=screen-256color-bce tmux"
+
 # Autocomplete
 #zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 #autoload -Uz compinit && compinit
@@ -16,6 +18,9 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
+# Better history
+export HISTCONTROL=erasedups
+#setopt histappend
 
 # Beep disable
 unsetopt beep
@@ -51,6 +56,7 @@ alias duh="du -csh"
 alias l="ls -laFGh"
 alias :q="echo YOU FAIL"
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias vim='mvim -v'
 
 source ~/.server_aliases
 
@@ -58,18 +64,20 @@ source ~/.server_aliases
 gd() { git diff $* | view -; }
 
 
-PYTHONSTARTUP=~/.pythonrc
-export PYTHONSTARTUP
+## Python
+#PYTHONSTARTUP=~/.pythonrc
+#export PYTHONSTARTUP
 
 PYTHONPATH='/Library/Frameworks/Python.framework/Versions/2.7/bin'
-PGSQLPATH='/Library/PostgreSQL/9.0/bin'
+PGSQLPATH=''
 
 PATH=/usr/local/bin:$PATH
 PATH=$PYTHONPATH:$PATH
 PATH=$PGSQLPATH:$PATH
 export PATH
 
-##source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
-if [ -f virtualenvwrapper.sh ]; then
-    source virtualenvwrapper.sh
-fi
+insert_sudo () { zle beginning-of-line; zle -U "sudo " }
+zle -N insert-sudo insert_sudo
+# esc + s
+#bindkey "^[s" insert-sudo
+
