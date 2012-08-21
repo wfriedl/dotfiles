@@ -15,10 +15,13 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype php setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " syntax highlighting
 syntax on
+set background=dark
+"colorscheme solarized
+colorscheme slate
 
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['python', 'php', 'javascript', 'css'],
@@ -42,6 +45,7 @@ endif
 
 set number
 nmap <f2> :set number! number?<cr>
+set cursorline
 
 set pastetoggle=<F3>
 
@@ -73,9 +77,6 @@ let c_space_errors=1
 let c_no_trail_space_error=0
 let c_no_tab_space_error=0
 
-" color scheme
-colorscheme slate
-
 " map the autocomplete key sequence to ctrl+space
 imap <c-space> <c-x><c-o> 
 " Change maplead to comma
@@ -85,7 +86,6 @@ let mapleader=","
 nnoremap <leader>ae :Ack --type=erl --type=python <cword><cr>
 nnoremap <leader>a :Ack -a --type=nohtml <cword><cr>
 nnoremap <leader>/ :AckFromSearch -a <cr>
-nnoremap <leader>er :e **/<cword>.erl<cr>
 
 " Buffer Movements
 nnoremap <leader>n :bn<cr>
@@ -120,3 +120,18 @@ map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Cast Stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle spell checking on and off with `,s`
+nmap <silent> <leader>s :set spell!<CR>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+" Open erlang files without typing nasty directory stuff
+nnoremap <leader>er :e **/<cword>.erl<cr>
