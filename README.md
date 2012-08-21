@@ -2,7 +2,7 @@ Installation
 
     cd ~
     git init
-    git remote add origin git://github.com/wfriedl/dotvim.git
+    git remote add origin git://github.com/wfriedl/dotfiles.git
     git pull origin master
 
 Create symlink for vimrc
