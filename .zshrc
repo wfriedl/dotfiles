@@ -55,29 +55,24 @@ alias ...='cd ../..'
 alias duh="du -csh"
 alias l="ls -laFGh"
 alias :q="echo YOU FAIL"
-alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
-alias vim='mvim -v'
+
+if type mvim >/dev/null 2>&1 
+then
+    alias vim='mvim -v'
+fi
 
 source ~/.server_aliases
 
 ## GIT
 gd() { git diff $* | view -; }
 
-
-## Python
-#PYTHONSTARTUP=~/.pythonrc
-#export PYTHONSTARTUP
-
-PYTHONPATH='/Library/Frameworks/Python.framework/Versions/2.7/bin'
-PGSQLPATH=''
-
-PATH=/usr/local/bin:$PATH
-PATH=$PYTHONPATH:$PATH
-PATH=$PGSQLPATH:$PATH
-export PATH
+if [ -x '/usr/local/Cellar' ]
+then
+    PATH=/usr/local/share/python:$PATH
+    export PATH
+fi
 
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 # esc + s
 #bindkey "^[s" insert-sudo
-
