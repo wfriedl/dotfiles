@@ -30,11 +30,6 @@ bindkey -e
 
 export EDITOR=vim
 
-# Pip
-export WORKON_HOME=$HOME/.virtualenvs
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-
 # Prompt with VCS Info
 setopt prompt_subst
 autoload -Uz vcs_info
@@ -65,12 +60,6 @@ source ~/.server_aliases
 
 ## GIT
 gd() { git diff $* | view -; }
-
-if [ -x '/usr/local/Cellar' ]
-then
-    PATH=/usr/local/share/python:$PATH
-    export PATH
-fi
 
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
