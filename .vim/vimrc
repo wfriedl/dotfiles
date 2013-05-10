@@ -1,5 +1,6 @@
 filetype off
 
+" http://learnvimscriptthehardway.stevelosh.com
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -12,6 +13,8 @@ filetype plugin on
 filetype indent on
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype xhtml setlocal ts=2 sts=2 sw=2
+autocmd Filetype htmldjango setlocal ts=2 sts=2 sw=2
 autocmd Filetype php setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
@@ -33,7 +36,7 @@ set autowrite       " Automatically save before commands like :next and :make
 
 " Store temporary files in a central spot
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp//,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 if version >= 703
@@ -94,6 +97,10 @@ nnoremap <leader>p :bp<cr>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Source current line useful when editing VIMRC
+vnoremap <leader>S y:execute @@<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 nmap <silent> <leader>ee :e **/<cword>.erl<CR>
@@ -105,12 +112,32 @@ nmap <F8> :TagbarToggle<CR>
 ":nnoremap <CR> :nohlsearch<cr>
 
 " Move around splits with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-d>
 nnoremap <c-k> <c-u>
+
+" find next/previous centers vertically in page
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Don't immediately find the next instance of word
+" With above and hlsearch makes for a nice search scheme
+nnoremap * *<c-o>
+
+ 
+" make some readline key combos work at ':'
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" map <tab> %
+
+" Delete to the end of the line
+nnoremap D d$
+
+" remap begin and end of line movements
+nnoremap H ^
+nnoremap L $
 
 inoremap jj <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -128,10 +155,33 @@ map <Down> :echo "no!"<cr>
 " Toggle spell checking on and off with `,s`
 nmap <silent> <leader>s :set spell!<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
+
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UltiSnip
+"
+" Mappings are for mac terminal, which doesn't handle tab nicely.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+imap <leader>, <tab>
+imap <leader>ul <c-tab>
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsListSnippets = "<c-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Current Window Numbering and Resizing (brilliant)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:au WinEnter * :setlocal number
+:au WinLeave * :setlocal nonumber
+
+:au WinEnter * :set winfixheight
+":au WinEnter * :wincmd =
 
 " Open erlang files without typing nasty directory stuff
 nnoremap <leader>er :e **/<cword>.erl<cr>
+
+" Use sane regexes.
+nnoremap / /\v
+vnoremap / /\v

@@ -27,3 +27,9 @@
 [submodule ".vim/bundle/flake8"]
 	path = .vim/bundle/flake8
 	url = https://github.com/nvie/vim-flake8.git
+[submodule ".vim/bundle/UltiSnips"]
+	path = .vim/bundle/UltiSnips
+	url = https://github.com/vim-scripts/UltiSnips
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
