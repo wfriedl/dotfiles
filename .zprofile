@@ -2,11 +2,14 @@
 # Pip
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=True
+
+# python
+export PYTHONPATH=$HOME/code/python
 
 if [ -x '/usr/local/Cellar' ]
 then
-    PATH=/usr/local/share/python:$PATH
+    PATH=/usr/local/share/python:/usr/local/sbin:$PATH
     export PATH
 fi
 
