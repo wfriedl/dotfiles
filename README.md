@@ -19,6 +19,11 @@ Upgrading vim plugins
     git submodule foreach git pull origin master
 
 
+Add vim pulgins to pathogen bundles
+
+    git submodule add https://github.com/path/to/module ~/.vim/bundle/module
+
+---
 References
 
     http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
