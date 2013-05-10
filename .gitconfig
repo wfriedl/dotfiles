@@ -36,3 +36,7 @@
 [merge]
     tool = vimdiff
 
+[push]
+	default = simple
+[core]
+	excludesfile = /Users/wfriedl/.gitignore_global

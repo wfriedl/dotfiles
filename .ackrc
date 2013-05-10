@@ -1,4 +1,5 @@
 --type-set
 erl=.erl,.trl,.src,.conf
 --pager=less -r
+--smart-case
 

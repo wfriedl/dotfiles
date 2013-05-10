@@ -3,3 +3,5 @@
 .serverauth*
 .vimrc
 *~
+*.pem
+*.pfx

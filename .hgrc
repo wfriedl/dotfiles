@@ -3,4 +3,5 @@
 username = 'Warren Friedl'
 
 [extensions]
-hgk=
+graphlog =
+color =
