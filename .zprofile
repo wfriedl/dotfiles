@@ -9,7 +9,7 @@ export PYTHONPATH=$HOME/code/python
 
 if [ -x '/usr/local/Cellar' ]
 then
-    PATH=/usr/local/share/python:/usr/local/sbin:$PATH
+    PATH=/usr/local/sbin:$PATH
     export PATH
 fi
 

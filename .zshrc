@@ -1,4 +1,7 @@
 
+# rehash - after installing apps to update tab completions
+# reset - if your env gets messed up
+
 # Colors
 autoload -U colors && colors
 
@@ -54,6 +57,11 @@ alias :q="echo YOU FAIL"
 if type mvim >/dev/null 2>&1 
 then
     alias vim='mvim -v'
+fi
+
+if type system_profiler >/dev/null 2>&1 
+then
+    alias lsusb="system_profiler SPUSBDataType"
 fi
 
 source ~/.server_aliases

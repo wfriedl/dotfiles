@@ -5,3 +5,9 @@ username = 'Warren Friedl'
 [extensions]
 graphlog =
 color =
+pager =
+convert =
+
+[pager]
+pager = LESS='FRX' less
+attend = diff, log

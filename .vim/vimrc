@@ -26,9 +26,17 @@ set background=dark
 "colorscheme solarized
 colorscheme slate
 
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['python', 'php', 'javascript', 'css'],
+let g:syntastic_mode_map = { 
+            \ 'mode': 'active',
+            \ 'active_filetypes': ['python', 'cpp', 'php', 'javascript', 'css'],
             \ 'passive_filetypes': ['puppet'] } 
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_compiler = 'clang'
+
+let g:syntastic_cpp_checkers = ['cpplint']
+let g:syntastic_cpp_cpplint_thres = 5
+
+map K :echo "no!"<cr>
 
 set nocompatible
 set autowrite       " Automatically save before commands like :next and :make
@@ -103,8 +111,6 @@ vnoremap <leader>S y:execute @@<cr>
 nnoremap <leader>S ^vg_y:execute @@<cr>
 cmap w!! w !sudo tee % >/dev/null
 
-nmap <silent> <leader>ee :e **/<cword>.erl<CR>
-
 " TagBar
 nmap <F8> :TagbarToggle<CR>
 
@@ -114,6 +120,8 @@ nmap <F8> :TagbarToggle<CR>
 " Move around splits with <c-hjkl>
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Move half-page up/down with c-j/k
 nnoremap <c-j> <c-d>
 nnoremap <c-k> <c-u>
 
@@ -130,8 +138,6 @@ nnoremap * *<c-o>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-" map <tab> %
-
 " Delete to the end of the line
 nnoremap D d$
 
@@ -140,14 +146,6 @@ nnoremap H ^
 nnoremap L $
 
 inoremap jj <ESC>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ARROW KEYS ARE UNACCEPTABLE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Left> :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up> :echo "no!"<cr>
-map <Down> :echo "no!"<cr>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Cast Stuff
@@ -181,6 +179,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Open erlang files without typing nasty directory stuff
 nnoremap <leader>er :e **/<cword>.erl<cr>
+nmap <silent> <leader>ee :e **/<cword>.erl<CR>
 
 " Use sane regexes.
 nnoremap / /\v
