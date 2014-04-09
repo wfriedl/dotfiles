@@ -1,22 +1,10 @@
 [submodule ".vim/bundle/minibufexplorer"]
 	path = .vim/bundle/minibufexplorer
-	url = https://github.com/fholgado/minibufexpl.vim.git
+	url = https://github.com/techlivezheng/vim-plugin-minibufexpl.git
     ignore = all
 [submodule ".vim/bundle/ack"]
 	path = .vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = git://github.com/garbas/vim-snipmate.git
-[submodule ".vim/bundle/tlib"]
-	path = .vim/bundle/tlib
-	url = https://github.com/tomtom/tlib_vim.git
-[submodule ".vim/bundle/mw-utils"]
-	path = .vim/bundle/mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule ".vim/bundle/snipmate-snippets"]
-	path = .vim/bundle/snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -24,12 +12,24 @@
 	path = .vim/bundle/recover
 	url = https://github.com/chrisbra/Recover.vim.git
     ignore = dirty 
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
+[submodule "/Users/wfriedl/.vim/bundle/Command-T"]
+	path = /Users/wfriedl/.vim/bundle/Command-T
+	url = https://github.com/wincent/Command-T.git
+[submodule ".vim/bundle/vimux"]
+	path = .vim/bundle/vimux
+	url = https://github.com/benmills/vimux.git
 [submodule ".vim/bundle/flake8"]
 	path = .vim/bundle/flake8
 	url = https://github.com/nvie/vim-flake8.git
-[submodule ".vim/bundle/UltiSnips"]
-	path = .vim/bundle/UltiSnips
-	url = https://github.com/vim-scripts/UltiSnips
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
