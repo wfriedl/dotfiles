@@ -1,6 +1,7 @@
 
 [ui]
 username = 'Warren Friedl'
+ignore = ~/.hgignore_global
 
 [extensions]
 graphlog =
