@@ -4,6 +4,7 @@ username = 'Warren Friedl'
 ignore = ~/.hgignore_global
 
 [extensions]
+shelve = 
 graphlog =
 color =
 pager =

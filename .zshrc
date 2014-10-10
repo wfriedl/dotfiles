@@ -44,19 +44,24 @@ precmd () { vcs_info }
 function cdf() { cd *$1*/ } 
 
 PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}${vcs_info_msg_0_}
+%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}${vcs_info_msg_0_}
 $ '
 
 # Aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias duh="du -csh"
-alias l="ls -laFGh"
+alias la="ls -laFGh"
+alias l="ls -lFGh"
 alias :q="echo YOU FAIL"
+
+alias flush_dns="dscacheutil -flushcache"
+alias reset_dns_service="sudo killall -HUP mDNSResponder"
+alias monitor_dns_reqs="tcpdump -vvv -s 0 -l -n port 53"
 
 if type mvim >/dev/null 2>&1 
 then
-    alias vim='mvim -v'
+    ## alias vim='mvim -v'
 fi
 
 if type system_profiler >/dev/null 2>&1 

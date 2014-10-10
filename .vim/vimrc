@@ -19,6 +19,7 @@ autocmd Filetype php setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+au BufReadCmd *.jar,*.xpi,*.sublime-package call zip#Browse(expand("<amatch>"))
 
 " syntax highlighting
 syntax on
@@ -35,6 +36,13 @@ let g:syntastic_c_compiler = 'clang'
 
 let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_cpp_cpplint_thres = 5
+
+let g:syntastic_python_checkers = ['flake8']
+
+let NERDTreeIgnore = ['\.pyc$', '\.sw[po]$']
+
+" Clear then redraw
+" noremap <c-L> :redraw!<CR>
 
 map K :echo "no!"<cr>
 
