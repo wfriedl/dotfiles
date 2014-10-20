@@ -2,7 +2,7 @@ filetype off
 
 " http://learnvimscriptthehardway.stevelosh.com
 
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 " Delete any existing autocommands must be before syntax lines
