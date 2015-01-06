@@ -2,12 +2,13 @@ filetype off
 
 " http://learnvimscriptthehardway.stevelosh.com
 
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 " Delete any existing autocommands must be before syntax lines
 autocmd!
 
+set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
@@ -20,6 +21,9 @@ autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 au BufReadCmd *.jar,*.xpi,*.sublime-package call zip#Browse(expand("<amatch>"))
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 
 " syntax highlighting
 syntax on
@@ -46,7 +50,6 @@ let NERDTreeIgnore = ['\.pyc$', '\.sw[po]$']
 
 map K :echo "no!"<cr>
 
-set nocompatible
 set autowrite       " Automatically save before commands like :next and :make
 
 
