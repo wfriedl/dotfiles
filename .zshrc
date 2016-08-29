@@ -53,16 +53,17 @@ alias ...='cd ../..'
 alias duh="du -csh"
 alias la="ls -laFGh"
 alias l="ls -lFGh"
-alias :q="echo YOU FAIL"
+alias :q="echo FAIL!!"
 
-alias flush_dns="dscacheutil -flushcache"
-alias reset_dns_service="sudo killall -HUP mDNSResponder"
-alias monitor_dns_reqs="tcpdump -vvv -s 0 -l -n port 53"
-
-if type mvim >/dev/null 2>&1 
+BASEDIR=$(dirname "$0")
+OS=`python $BASEDIR/bin/platform.py`
+if [ $OS = "darwin" ]
 then
-    ## alias vim='mvim -v'
+    alias flush_dns="dscacheutil -flushcache"
+    alias reset_dns_service="sudo killall -HUP mDNSResponder"
 fi
+
+alias monitor_dns_reqs="tcpdump -vvv -s 0 -l -n port 53"
 
 if type system_profiler >/dev/null 2>&1 
 then

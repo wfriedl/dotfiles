@@ -1,27 +1,18 @@
 Installation
 
-    cd ~
-    git init
-    git remote add origin git://github.com/wfriedl/dotfiles.git
-    git pull origin master
-
-Create symlink for vimrc
-
-    ln -s ~/.vim/vimrc ~/.vimrc
-
-Update vim and other submodules
-
-    git submodule update --init
+    git clone https://github.com/wfriedl/dotfiles.git
+    sh dotfiles/bin/dotfiles_setup.sh
 
 
 Upgrading vim plugins
 
-    git submodule foreach git pull origin master
+    sh dotfiles/bin/dotfiles_update.sh
 
 
 Add vim pulgins to pathogen bundles
 
-    git submodule add https://github.com/path/to/module ~/.vim/bundle/module
+    cd dotfiles
+    git submodule add https://github.com/path/to/module .vim/bundle/module
 
 ---
 References

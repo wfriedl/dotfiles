@@ -55,7 +55,7 @@ set autowrite       " Automatically save before commands like :next and :make
 
 " Store temporary files in a central spot
 set backup
-set backupdir=~/.vim-tmp//,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 if version >= 703
