@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOTFILES=~/dofiles
+DOTFILES=~/dotfiles
 
 cd $DOTFILES
 git submodule foreach git pull origin master

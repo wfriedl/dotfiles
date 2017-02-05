@@ -13,17 +13,20 @@ filetype on
 filetype plugin on
 filetype indent on
 
+au BufRead,BufNewFile *.pp setfiletype puppet
+
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype xhtml setlocal ts=2 sts=2 sw=2
 autocmd Filetype htmldjango setlocal ts=2 sts=2 sw=2
 autocmd Filetype php setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 equalprg=js-beautify\ --stdin
 au BufReadCmd *.jar,*.xpi,*.sublime-package call zip#Browse(expand("<amatch>"))
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+set nowrap
 
 " syntax highlighting
 syntax on
@@ -33,8 +36,8 @@ colorscheme slate
 
 let g:syntastic_mode_map = { 
             \ 'mode': 'active',
-            \ 'active_filetypes': ['python', 'cpp', 'php', 'javascript', 'css'],
-            \ 'passive_filetypes': ['puppet'] } 
+            \ 'active_filetypes': ['puppet', 'ruby', 'python', 'cpp', 'php', 'javascript', 'css'],
+            \ 'passive_filetypes': [] } 
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_compiler = 'clang'
 
@@ -106,7 +109,7 @@ let mapleader=","
 
 " Ack
 nnoremap <leader>ae :Ack --type=erl --type=python <cword><cr>
-nnoremap <leader>a :Ack -a --type=nohtml <cword><cr>
+nnoremap <leader>a :Ack --type=nohtml <cword><cr>
 nnoremap <leader>/ :AckFromSearch -a <cr>
 
 " Buffer Movements
@@ -195,3 +198,12 @@ nmap <silent> <leader>ee :e **/<cword>.erl<CR>
 " Use sane regexes.
 nnoremap / /\v
 vnoremap / /\v
+
+function! JSON_Format()
+    " This requires: pip install js-beautify
+    setlocal equalprg=js-beautify\ --stdin
+    normal ggVG= <cr>
+endfunction
+
+" format a paragraph... of text
+" gqip (on first line of para)

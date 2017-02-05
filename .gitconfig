@@ -1,9 +1,10 @@
 [user]
 	name = Warren Friedl
-	email = wfriedl@wrightwoodtech.com
+	email = wfriedl@gmail.com
 [github]
 	user = wfriedl
-    token = !security find-generic-password -gs \"GitHub API Token\" 2>&1 >/dev/null | awk '/password/ {print $2}' | tr -d \\\"
+    # security find-generic-password -a ${USER} -s github-api-token -p <token>
+    token = !security find-generic-password -gs \"github-api-token\" 2>&1 >/dev/null | awk '/password/ {print $2}' | tr -d \\\"
 
 [diff]
 [color]
@@ -39,4 +40,12 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /Users/wfriedl/.gitignore_global
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = ~/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = ~/.stCommitMsg
