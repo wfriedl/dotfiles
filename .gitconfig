@@ -3,8 +3,8 @@
 	email = wfriedl@gmail.com
 [github]
 	user = wfriedl
-    # security find-generic-password -a ${USER} -s github-api-token -p <token>
-    token = !security find-generic-password -gs \"github-api-token\" 2>&1 >/dev/null | awk '/password/ {print $2}' | tr -d \\\"
+    # security add-generic-password -a ${USER} -s github-api-token -p <token>
+    token = !security find-generic-password -gs github-api-token 2>&1 >/dev/null | awk '/password/ {print $2}' | tr -d \\\"
 
 [diff]
 [color]
