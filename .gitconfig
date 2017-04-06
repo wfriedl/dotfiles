@@ -1,6 +1,6 @@
 [user]
 	name = Warren Friedl
-	email = wfriedl@wrightwoodtech.com
+	email = wfriedl@gmail.com
 [github]
 	user = wfriedl
     token = !security find-generic-password -gs \"GitHub API Token\" 2>&1 >/dev/null | awk '/password/ {print $2}' | tr -d \\\"
@@ -24,11 +24,13 @@
     pullff = pull --ff-only
     noff = merge --no-ff
     l = log --graph --abbrev-commit --date=relative 
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     la = !git l --all
     fa = fetch --all
     pom = push origin master
-    b = branch
 	unstage = reset HEAD --
+    undo = reset --soft HEAD^
+    stash-all = stash save --include-untracked
 
 [format]
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
